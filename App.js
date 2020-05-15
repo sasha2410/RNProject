@@ -9,14 +9,6 @@
 import React from 'react';
 import MainPage from './components/main_page.js';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 const App: () => React$Node = () => {
   return (
     <MainPage />
