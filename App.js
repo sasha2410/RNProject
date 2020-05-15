@@ -7,12 +7,10 @@
  */
 
 import React from 'react';
-import MainPage from './components/main_page.js';
+import Main from './components/main.js';
 
 const App: () => React$Node = () => {
-  return (
-    <MainPage />
-  );
+  return (<Main/>);
 };
 
 export default App;
