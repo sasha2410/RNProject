@@ -6,7 +6,7 @@ import {
   ImageBackground
 } from 'react-native';
 
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 
 const styles = {
 
@@ -56,7 +56,16 @@ class Menu extends React.Component {
     return (
       <ImageBackground style={ styles.container } source={ require('../images/image-1.jpg') }>
         <Text style={ styles.text }>Welcome to the app!</Text>
-        <Button type="clear" titleStyle={ styles.button.title } style={ styles.button.base } title="Start New Game" onPress={ this.onStart.bind(this) }/>
+        <Button type="clear" titleStyle={ styles.button.title } style={ styles.button.base } title="Start New Game" onPress={ this.onStart.bind(this) }
+                icon={
+                      <Icon
+                        name="airplay"
+                        size={15}
+                        color="white"
+                        style={{ marginRight: 10 }}
+                      />
+                    }
+        />
         <Button type="clear" titleStyle={ styles.button.title } style={ styles.button.base } title="Options" onPress={ this.onOptions.bind(this) }/>
       </ImageBackground>
     );
