@@ -1,18 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
+import { connect } from 'react-redux'
 
+import { View } from 'react-native';
 import Menu from './parts/menu.js';
 import Canvas from './parts/canvas.js';
 
-class Main extends React.Component {
+class Main extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = { step: 1 };
+    this.props = props;
   }
 
   render() {
-    const { step } = this.state;
+    const { step } = this.props;
     return (
       <View>
         { (step == 1) && <Menu /> }
@@ -22,4 +23,10 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    step: state.step
+  }
+};
+
+export default connect(mapStateToProps, null)(Main);

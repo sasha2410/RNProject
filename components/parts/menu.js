@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import {
   View,
   Text,
@@ -7,6 +8,7 @@ import {
 } from 'react-native';
 
 import { Button, Icon } from 'react-native-elements';
+import { changeStep } from '../store/actions.js';
 
 const styles = {
 
@@ -40,11 +42,13 @@ class Menu extends React.Component {
 
   constructor(props){
     super(props);
+    this.props = props;
   }
 
   onStart(event){
     console.log('start clicked');
     console.log(event);
+    this.props.changeStep(2);
   }
 
   onOptions(event){
@@ -66,10 +70,16 @@ class Menu extends React.Component {
                       />
                     }
         />
-        <Button type="clear" titleStyle={ styles.button.title } style={ styles.button.base } title="Options" onPress={ this.onOptions.bind(this) }/>
+        <Button type="clear" titleStyle={ styles.button.title } style={ styles.button.base } title="Options" onPress={ this.onOptions.bind(this) } />
       </ImageBackground>
     );
   }
 }
 
-export default Menu;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    changeStep: (newStep) => dispatch(changeStep(newStep))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Menu);
